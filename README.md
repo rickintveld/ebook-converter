@@ -1,4 +1,4 @@
-# Conver EPUB e-books to MOBI
+# Convert EPUB e-books to MOBI
 
 # Usage
 
