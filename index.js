@@ -39,18 +39,20 @@ prompt.get(schema, function (error, result) {
 
     ebookConverter.setPoolSize(2);
 
-    files.forEach(() => (file) => {
+    for (let index = 0; index < files.length; index++) {
+      let file = files[index];
+
       const book = file.substring(0, file.lastIndexOf("."));
 
       if (book.length > 0) {
         ebookConverter
           .convert({
-            input: sourcePath + book + ".epub",
-            output: path.join(result.outputPath, book + ".mobi"),
+            input: result.sourcePath + "/" + book + ".epub",
+            output: path.join(result.outputPath + "/", book + ".mobi"),
           })
           .then((response) => console.log(response))
           .catch((error) => console.error(error));
       }
-    });
+    }
   });
 });
